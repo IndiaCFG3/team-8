@@ -2,6 +2,7 @@
 ## Members
 * Aayush Fadia
 * Bhavika Bajaj
+* Srija Chitikesi
 ---
 > Append your names above as an experiment.
 > Clone the repo, add your name in this file (README.md), commit the file, then push it.
