@@ -134,16 +134,10 @@ class DataSupplier:
         data = self.wasting[self.wasting['Countries and areas'] == country]
         years = data["Survey Years"].tolist()
         pt_estimate = data['Point Estimate'].tolist()
-        lower_limit = data["Lower Limit"].tolist()
-        upper_limit = data['Upper Limit'].tolist()
-        sample_size = data['Sample Size'].tolist()
 
         final_data = {
             "years": years,
-            "Point Estimate": pt_estimate,
-            "Lower Limit": lower_limit,
-            "Upper Limit": upper_limit,
-            "Sample Size": sample_size,
+            "values": pt_estimate,
         }
         return dumps(final_data)
 
@@ -218,6 +212,16 @@ class DataSupplier:
                 dct[country] = max
         return dumps(dct)
 
+    def get_latest_country_wasting(self):
+        countries = self.wasting['Countries and areas'].unique()
+        dct = dict()
+        for country in countries:
+            data = self.wasting[self.wasting['Countries and areas'] == country]
+            max = data.iloc[0]['Point Estimate']
+            if max == max:
+                dct[country] = max
+        return dumps(dct)
+
 
 if __name__ == '__main__':
     datasupplier = DataSupplier()
@@ -232,3 +236,5 @@ if __name__ == '__main__':
     print(datasupplier.get_latest_country_populations())
     print(datasupplier.get_latest_country_productions())
     print(datasupplier.get_latest_country_productions()[4160:4170])
+    print(datasupplier.wasting_by_country("Afghanistan"))
+    print(datasupplier.get_latest_country_wasting())

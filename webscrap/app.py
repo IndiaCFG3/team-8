@@ -42,6 +42,11 @@ def get_population(country):
     data_supplier.population_by_country(country)
 
 
+@app.route('/wasting/bycountry/<country>', methods=['POST', 'GET'])
+def get_wasting_by_country(country):
+    return data_supplier.wasting_by_country(country)
+
+
 @app.route('/population/all')
 def get_all_countries_populations():
     return data_supplier.get_latest_country_populations()
@@ -55,6 +60,11 @@ def get_all_countries_productions():
 @app.route('/prices/all')
 def get_all_countries_prices():
     return data_supplier.get_latest_country_prices()
+
+
+@app.route('/wasting/all')
+def get_wastings():
+    return data_supplier.get_latest_country_wasting()
 
 
 if __name__ == '__main__':
