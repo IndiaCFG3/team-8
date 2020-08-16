@@ -6,6 +6,7 @@ function plotGraph1() {
     if(Info == "Demand"){urlstub = "perperson"}
     if(Info == "Production Cost"){urlstub = "price"}
     if(Info == "Wasting"){urlstub = "wasting"}
+    if(Info == "Stunting"){urlstub = "stunting"}
     var country = x.elements[1].value
     var requestURL = "http://localhost:5000/" + urlstub +"/bycountry/" + country
     console.log(requestURL)
@@ -43,6 +44,7 @@ function plotGraph2() {
     if(Info == "Demand"){urlstub = "perperson"}
     if(Info == "Production Cost"){urlstub = "price"}
     if(Info == "Wasting"){urlstub = "wasting"}
+    if(Info == "Stunting"){urlstub = "stunting"}
     var country = x.elements[2].value
     console.log(urlstub)
     var requestURL = "http://localhost:5000/" + urlstub +"/bycountry/" + country
