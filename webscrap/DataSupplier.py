@@ -46,6 +46,7 @@ class DataSupplier:
         return dumps(final_data)
 
 
+
 if __name__ == '__main__':
     datasupplier = DataSupplier()
     print(datasupplier.get_supply_data_by_country("Afghanistan"))
