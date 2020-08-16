@@ -1,6 +1,7 @@
-from DataSupplier import DataSupplier
 from flask import Flask, render_template
 from flask_cors import CORS
+
+from DataSupplier import DataSupplier
 
 data_supplier = DataSupplier()
 app = Flask(__name__)
@@ -44,6 +45,16 @@ def get_population(country):
 @app.route('/population/all')
 def get_all_countries_populations():
     return data_supplier.get_latest_country_populations()
+
+
+@app.route('/production/all')
+def get_all_countries_productions():
+    return data_supplier.get_latest_country_productions()
+
+
+@app.route('/prices/all')
+def get_all_countries_prices():
+    return data_supplier.get_latest_country_prices()
 
 
 if __name__ == '__main__':

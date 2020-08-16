@@ -191,22 +191,44 @@ class DataSupplier:
 
     def get_latest_country_populations(self):
         countries = self.population.Area.unique()
-        print(countries)
         dct = dict()
         for country in countries:
             data = self.population[self.population['Area'] == country]
-            max = data.loc[data['Value'].idxmax()]["Value"]
+            max = data.loc[data['Year'].idxmax()]["Value"]
             dct[country] = max
+        return dumps(dct)
+
+    def get_latest_country_productions(self):
+        countries = self.clean_data.Area.unique()
+        dct = dict()
+        for country in countries:
+            data = self.clean_data[self.clean_data['Area'] == country]
+            max = data.loc[data['Year'].idxmax()]["Value"]
+            if max == max:
+                dct[country] = max
+        return dumps(dct)
+
+    def get_latest_country_prices(self):
+        countries = self.prices.Area.unique()
+        dct = dict()
+        for country in countries:
+            data = self.prices[self.prices['Area'] == country]
+            max = data.loc[data['Year'].idxmax()]["Value"]
+            if max == max:
+                dct[country] = max
         return dumps(dct)
 
 
 if __name__ == '__main__':
     datasupplier = DataSupplier()
-    print(datasupplier.get_supply_data_by_country("Afghanistan"))
-    print(datasupplier.get_per_person_per_country("Afghanistan"))
-    print(datasupplier.protein_consumption_by_country("India"))
-    print(datasupplier.egg_price_by_country("India"))
-    print(datasupplier.population_by_country("Afghanistan"))
-    print(datasupplier.stunting_by_country("Afghanistan"))
-    print(datasupplier.wasting_by_country("Afghanistan"))
-    print(datasupplier.retail_price_by_country("Afghanistan"))
+    # print(datasupplier.get_supply_data_by_country("Afghanistan"))
+    # print(datasupplier.get_per_person_per_country("Afghanistan"))
+    # print(datasupplier.protein_consumption_by_country("India"))
+    # print(datasupplier.egg_price_by_country("India"))
+    # print(datasupplier.population_by_country("Afghanistan"))
+    # print(datasupplier.stunting_by_country("Afghanistan"))
+    # print(datasupplier.wasting_by_country("Afghanistan"))
+    # print(datasupplier.retail_price_by_country("Afghanistan"))
+    print(datasupplier.get_latest_country_populations())
+    print(datasupplier.get_latest_country_productions())
+    print(datasupplier.get_latest_country_productions()[4160:4170])

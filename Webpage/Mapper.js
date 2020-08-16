@@ -29,19 +29,7 @@
 //     var geomap = new google.visualization.GeoMap(container);
 //     geomap.draw(data, options);
 // }
-console.log("START DRAW")
-var x = document.getElementById("input");
-var requestURL = "http://localhost:5000/population/all"
-console.log(requestURL)
-var xmlHttp = new XMLHttpRequest();
-xmlHttp.open("GET", requestURL, false); // false for synchronous request
-xmlHttp.send(null);
-var obj = JSON.parse(xmlHttp.responseText)
-var dat = []
-dat.push(["Country", "Popularity"])
-for (let property in obj) {
-    dat.push([property, obj[property]])
-}
+
 google.charts.load('current', {
     'packages': ['geochart'],
     // Note: you will need to get a mapsApiKey for your project.
@@ -51,7 +39,17 @@ google.charts.load('current', {
 google.charts.setOnLoadCallback(drawRegionsMap);
 
 function drawRegionsMap() {
-
+    var requestURL = "http://localhost:5000/production/all"
+    console.log(requestURL)
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open("GET", requestURL, false); // false for synchronous request
+    xmlHttp.send(null);
+    var obj = JSON.parse(xmlHttp.responseText)
+    var dat = []
+    dat.push(["Country", "Popularity"])
+    for (let property in obj) {
+        dat.push([property, obj[property]])
+    }
     var data = google.visualization.arrayToDataTable(dat);
 
     var options = {};

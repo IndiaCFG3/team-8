@@ -66,6 +66,38 @@ function plotGraph2() {
     new Chartist.Line('.ct-chart2', data);
     return xmlHttp.responseText;
 }
+function draw_on_map(){
+    google.charts.load('current', {
+    'packages': ['geochart'],
+    // Note: you will need to get a mapsApiKey for your project.
+    // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
+    'mapsApiKey': 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY'
+});
+google.charts.setOnLoadCallback(drawRegionsMap);
 
+function drawRegionsMap() {
+    var x = document.getElementById("input");
+    var stub = x.elements[3].value
+    var requestURL = 'http://localhost:5000/'+stub+'/all'
+    console.log(requestURL)
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open("GET", requestURL, false); // false for synchronous request
+    xmlHttp.send(null);
+    var obj = JSON.parse(xmlHttp.responseText)
+    var dat = []
+    dat.push(["Country", "Popularity"])
+    for (let property in obj) {
+        dat.push([property, obj[property]])
+    }
+    var data = google.visualization.arrayToDataTable(dat);
+
+    var options = {};
+
+    var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+
+    chart.draw(data, options);
+}
+}
 document.getElementById("done").addEventListener("click", plotGraph1);
 document.getElementById("done").addEventListener("click", plotGraph2);
+document.getElementById("done").addEventListener("click", draw_on_map)
