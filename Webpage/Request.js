@@ -1,8 +1,13 @@
 function plotGraph1() {
     var x = document.getElementById("input");
     var Info = x.elements[0].value
+    var urlstub = "supply"
+    if(Info == "Supply"){urlstub = "supply"}
+    if(Info == "Demand"){urlstub = "perperson"}
+    if(Info == "Production Cost"){urlstub = "price"}
     var country = x.elements[1].value
-    var requestURL = "http://localhost:5000/supply" + "/bycountry/" + country
+    var requestURL = "http://localhost:5000/" + urlstub +"/bycountry/" + country
+    console.log(requestURL)
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.open("GET", requestURL, false); // false for synchronous request
     xmlHttp.send(null);
@@ -22,16 +27,24 @@ function plotGraph1() {
         ]
     };
     new Chartist.Line('.ct-chart1', data);
-    /*if(x.elements[2].value!="") var k=plotGraph2();*/
+    if(x.elements[2].value!="") var k=plotGraph2();
     return xmlHttp.responseText;
 
 }
 
 function plotGraph2() {
+    console.log("START REQUEST SECOND")
     var x = document.getElementById("input");
     var Info = x.elements[0].value
+    console.log(Info)
+    var urlstub = "supply"
+    if(Info == "Supply"){urlstub = "supply"}
+    if(Info == "Demand"){urlstub = "perperson"}
+    if(Info == "Production Cost"){urlstub = "price"}
     var country = x.elements[2].value
-    var requestURL = "http://localhost:5000/supply" + "/bycountry/" + country
+    console.log(urlstub)
+    var requestURL = "http://localhost:5000/" + urlstub +"/bycountry/" + country
+    console.log(requestURL)
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.open("GET", requestURL, false); // false for synchronous request
     xmlHttp.send(null);
