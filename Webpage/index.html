@@ -1,42 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <title>Site and Life</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <script src="https://kit.fontawesome.com/yourcode.js"></script>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Rapid Bootstrap Template - Index</title>
+    <meta content="" name="descriptison">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,400,500,600,700"
+        rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="assets/vendor/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
+    <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="assets/css/style.css" rel="stylesheet">
+	<style>
+		#graph{
+			margin: auto;
+		}
+	</style>
 </head>
+
 <body>
-	<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">Site and Life</a>
+
+    <!-- ======= Top Bar ======= -->
+    <div id="topbar" class="d-none d-lg-flex align-items-end fixed-top topbar-transparent">
+        <div class="container d-flex justify-content-end">
+            <!-- <div class="social-links">
+        <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+        <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+        <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+        <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+      </div> -->
+        </div>
     </div>
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
-      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">InfoType <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="#">Demand</a></li>
-          <li><a href="#">Supply</a></li>
-        </ul>
-      </li>
-      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Countries <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="#">India</a></li>
-          <li><a href="#">US</a></li>
-          <li><a href="#">Australia</a></li>
-          <li><a href="#">UK</a></li>
-        </ul>
-      </li>
-      <li><a href="#">Page 2</a></li>
-    </ul>
-    <ul class="nav navbar-nav navbar-right">
-      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-    </ul>
-  </div>
-</nav>
+
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top header-transparent">
+        <div class="container d-flex align-items-center">
+
+            <h1 class="logo mr-auto"><a href="https://sightandlife.org/">Sight and Life</a></h1>
+
+        </div>
+    </header><!-- End Header -->
+
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="clearfix">
+        <div class="container d-flex h-100">
+            <div class="row justify-content-center align-self-center" data-aos="fade-up">
+                <div class="col-md-6 intro-info order-md-first order-last" data-aos="zoom-in" data-aos-delay="100">
+
+                    <form action="forms/contact.php" method="post" role="form" class="php-email-form" id="input">
+                        <div class="form-group col-sm-10">
+                            <label for="exampleFormControlSelect1">Select</label>
+                            <select class="form-control" id="exampleFormControlSelect1">
+                                <option>Demand</option>
+                                <option>Supply</option>
+                            </select>
+                            <div class="validate"></div>
+                        </div>
+                        <div class="form-group col-sm-10">
+                            <input type="text" class="form-control" name="country" id="country" placeholder="Country" />
+                            <div class="validate"></div>
+                        </div>
+                    </form>
+
+                    <div>
+                        <a href="#about" class="btn-get-started scrollto" id="done">Search</a>
+                    </div>
+                </div>
+
+                <div class="col-md-6 intro-img order-md-last order-first" data-aos="zoom-out" data-aos-delay="200">
+                    <img src="assets/img/intro-img.svg" alt="" class="img-fluid">
+                </div>
+            </div>
+
+        </div>
+    </section><!-- End Hero -->
+	<section>
+		<div class="d-flex mx-auto justify-content-center" id="graph">
+			<div class=" w-50 m-1 text-center bg-primary ct-chart ct-perfect-fourth">hello</div>
+			<div class="w-50 m-1 text-center bg-primary">hello</div>
+		</div>
+	</section>
+
+
+    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/jquery/jquery.min.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="assets/vendor/counterup/counterup.min.js"></script>
+    <script src="assets/vendor/venobox/venobox.min.js"></script>
+    <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+    <script src="assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="assets/js/main.js"></script>
+	
+	<!-- Request-->
+	<script src="Request.js"></script>
+
 </body>
+
 </html>

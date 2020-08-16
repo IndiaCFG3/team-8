@@ -8,32 +8,10 @@
 <form id="form">
     <label for="country">Country</label><br>
     <input type="text" id="country" name="fname"><br>
+	<label for="InfoType">InfoType</label><br>
+    <input type="text" id="country" name="Info"><br>
 </form>
 <button type="button" id="done">Click Me!</button>
 <div class="ct-chart ct-perfect-fourth"></div>
 </body>
-<script>
-    function plotGraph(){
-        var x = document.getElementById("form");
-        var country = x.elements[0].value
-        var requestURL = "supply/bycountry/"+country
-        console.log(requestURL)
-        var xmlHttp = new XMLHttpRequest();
-        xmlHttp.open( "GET", requestURL, false); // false for synchronous request
-        xmlHttp.send( null );
-        var obj = JSON.parse(xmlHttp.responseText)
-        console.log(obj)
-        var data = {
-            labels: obj.years,
-            series: [
-                obj.values
-            ]
-        };
-        new Chartist.Line('.ct-chart', data);
-        return xmlHttp.responseText;
-
-    }
-    document.getElementById("done").addEventListener("click", plotGraph);
-
-</script>
 </html>
