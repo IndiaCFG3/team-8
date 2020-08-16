@@ -68,9 +68,22 @@ class DataSupplier:
         }
         return dumps(final_data)
 
+    def population_by_country(self, country):
+        country = country[0].capitalize() + country[1:]
+        data = self.population[self.population['Area'] == country]
+        years = data["Year"].tolist()
+        values = data["Value"].tolist()
+        final_data = {
+            "years": years,
+            "values": values
+        }
+        return dumps(final_data)
+
+
 if __name__ == '__main__':
     datasupplier = DataSupplier()
     print(datasupplier.get_supply_data_by_country("Afghanistan"))
     print(datasupplier.get_per_person_per_country("Afghanistan"))
     print(datasupplier.protein_consumption_by_country("India"))
     print(datasupplier.egg_price_by_country("India"))
+    print(datasupplier.population_by_country("Afghanistan"))
