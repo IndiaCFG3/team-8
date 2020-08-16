@@ -23,5 +23,11 @@ def get_data(country):
     return data_supplier.get_per_person_per_country(country)
 
 
+@app.route('/protein/bycountry/<country>', methods=['POST', 'GET'])
+def get_data(country):
+    # if request.method == 'POST':
+    return data_supplier.protein_consumption_by_country(country)
+
+
 if __name__ == '__main__':
     app.run(debug=True)

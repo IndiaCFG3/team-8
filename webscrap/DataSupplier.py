@@ -5,14 +5,17 @@ import pandas as pd
 
 class DataSupplier:
     def __init__(self):
-        dataset = pd.read_csv("data.csv")
+        dataset = pd.read_csv("../data.csv")
         new_data = dataset[dataset["Unit"] == "tonnes"]
         self.clean_data = new_data[["Area", "Item Code", "Year", "Value"]][dataset["Item Code"] == 1062][
             ["Area", "Year", "Value"]]
-        population = pd.read_csv("CSV Files/FAOSTAT_Population.csv")
+        population = pd.read_csv("../CSV Files/FAOSTAT_Population.csv")
         popu = population[population["Element"] == "Total Population - Both sexes"][["Area", "Year", "Value"]]
         popu["Value"] = popu["Value"] * 1000
         self.population = popu
+        protein = pd.read_csv("../CSV Files/Country dietary needs.csv")
+        self.protein = protein[protein["disagg.value"] == "National"][
+            ["country", "Legumes_2016", "Milk_2016", "Processed meat_2016", "Red meat_2016"]]
 
     def get_supply_data_by_country(self, country):
         country = country[0].capitalize() + country[1:]
@@ -45,9 +48,14 @@ class DataSupplier:
         }
         return dumps(final_data)
 
+    def protein_consumption_by_country(self, country):
+        country = country[0].capitalize() + country[1:]
+        prtn = self.protein[self.protein['country'] == country].to_dict('records')[0]
+        return dumps(prtn)
 
 
 if __name__ == '__main__':
     datasupplier = DataSupplier()
     print(datasupplier.get_supply_data_by_country("Afghanistan"))
     print(datasupplier.get_per_person_per_country("Afghanistan"))
+    print(datasupplier.protein_consumption_by_country("India"))
