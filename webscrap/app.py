@@ -1,9 +1,10 @@
-from flask import Flask, render_template
-
 from DataSupplier import DataSupplier
+from flask import Flask, render_template
+from flask_cors import CORS
 
 data_supplier = DataSupplier()
 app = Flask(__name__)
+CORS(app)
 
 
 @app.route('/index')

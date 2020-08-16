@@ -2,7 +2,7 @@ function plotGraph(){
         var x = document.getElementById("input");
 		var Info = x.elements[0].value
         var country = x.elements[1].value
-        var requestURL = Info+"/bycountry/"+country
+        var requestURL = "http://localhost:5000/supply/bycountry/"+country
         console.log(requestURL)
         var xmlHttp = new XMLHttpRequest();
         xmlHttp.open( "GET", requestURL, false); // false for synchronous request
