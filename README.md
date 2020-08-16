@@ -4,7 +4,7 @@
 * Bhavika Bajaj
 * Srija Chitikesi
 * Ankit Goyal
-*Lahari Vundavalli
+
 ---
 > Append your names above as an experiment.
 > Clone the repo, add your name in this file (README.md), commit the file, then push it.
