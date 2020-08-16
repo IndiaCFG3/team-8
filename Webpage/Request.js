@@ -14,8 +14,8 @@ function plotGraph1(){
             ]
         };
         new Chartist.Line('.ct-chart1', data);
-		/*if(x.elements[2].value!="") var k=plotGraph2();
-        return xmlHttp.responseText;*/
+		/*if(x.elements[2].value!="") var k=plotGraph2();*/
+        return xmlHttp.responseText;
 
 }
 function plotGraph2(){
@@ -35,7 +35,6 @@ function plotGraph2(){
         };
         new Chartist.Line('.ct-chart2', data);
         return xmlHttp.responseText;
-
 }
 
 document.getElementById("done").addEventListener("click", plotGraph1);
