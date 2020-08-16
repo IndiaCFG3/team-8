@@ -41,5 +41,10 @@ def get_population(country):
     data_supplier.population_by_country(country)
 
 
+@app.route('/population/all')
+def get_all_countries_populations():
+    return data_supplier.get_latest_country_populations()
+
+
 if __name__ == '__main__':
     app.run(debug=True)

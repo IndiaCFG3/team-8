@@ -1,7 +1,7 @@
 from json import dumps
 
-import pandas as pd
 import numpy as np
+import pandas as pd
 
 
 class DataSupplier:
@@ -23,29 +23,33 @@ class DataSupplier:
         self.prices = price_USD[["Area", "Year", "Value"]]
 
         stunting = pd.read_csv("../CSV Files/Stunting - Trend.csv")
-        stunting.rename(columns = {'National':'Point Estimate','Unnamed: 14':'Lower Limit', 'Unnamed: 15':'Upper Limit', 
-                              'Unnamed: 16':'Sample Size'}, inplace = True)
-        stunting = stunting[2:][["Countries and areas","Survey Years",'Point Estimate','Lower Limit','Upper Limit','Sample Size']]
+        stunting.rename(
+            columns={'National': 'Point Estimate', 'Unnamed: 14': 'Lower Limit', 'Unnamed: 15': 'Upper Limit',
+                     'Unnamed: 16': 'Sample Size'}, inplace=True)
+        stunting = stunting[2:][
+            ["Countries and areas", "Survey Years", 'Point Estimate', 'Lower Limit', 'Upper Limit', 'Sample Size']]
         stunting = stunting.replace(np.nan, None)
         self.stunting = stunting
 
         wasting = pd.read_csv("../CSV Files/Wasting - Trend.csv")
-        wasting.rename(columns = {'National':'Point Estimate','Unnamed: 14':'Lower Limit', 'Unnamed: 15':'Upper Limit', 
-                              'Unnamed: 16':'Sample Size'}, inplace = True)
-        wasting = wasting[2:][["Countries and areas","Survey Years",'Point Estimate','Lower Limit','Upper Limit','Sample Size']]	
+        wasting.rename(
+            columns={'National': 'Point Estimate', 'Unnamed: 14': 'Lower Limit', 'Unnamed: 15': 'Upper Limit',
+                     'Unnamed: 16': 'Sample Size'}, inplace=True)
+        wasting = wasting[2:][
+            ["Countries and areas", "Survey Years", 'Point Estimate', 'Lower Limit', 'Upper Limit', 'Sample Size']]
         wasting = wasting.replace(np.nan, None)
         self.wasting = wasting
 
         retail_prices = pd.read_csv("../CSV Files/Retail_Prices.csv")
-        retail_prices = retail_prices[retail_prices["Unit"]=="tonnes"][["Area","Year","Value"]]
+        retail_prices = retail_prices[retail_prices["Unit"] == "tonnes"][["Area", "Year", "Value"]]
         self.retail_prices = retail_prices
 
         consumption = pd.read_csv("../CSV Files/Consumption.csv")
-        consumption = consumption[["Country","Year","Value"]]
+        consumption = consumption[["Country", "Year", "Value"]]
         self.consumption = consumption
 
         anemia = pd.read_csv("../CSV Files/Anemia.csv")
-        anemia = anemia.iloc[:,[1,2,3,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25]]
+        anemia = anemia.iloc[:, [1, 2, 3, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]]
         anemia = anemia.replace(np.nan, None)
         self.anemia = anemia
 
@@ -115,7 +119,7 @@ class DataSupplier:
         lower_limit = data["Lower Limit"].tolist()
         upper_limit = data['Upper Limit'].tolist()
         sample_size = data['Sample Size'].tolist()
-        
+
         final_data = {
             "years": years,
             "Point Estimate": pt_estimate,
@@ -133,7 +137,7 @@ class DataSupplier:
         lower_limit = data["Lower Limit"].tolist()
         upper_limit = data['Upper Limit'].tolist()
         sample_size = data['Sample Size'].tolist()
-        
+
         final_data = {
             "years": years,
             "Point Estimate": pt_estimate,
@@ -178,15 +182,24 @@ class DataSupplier:
         adult_anemia_2016 = data["adult_anemia_2016"].tolist()
         adult_anemia_2017 = data["adult_anemia_2017"].tolist()
         adult_anemia_2018 = data["adult_anemia_2018"].tolist()
-        
-        
+
         final_data = {
             "disaqqvalue": disaqqvalue,
             "values": values
         }
         return dumps(final_data)
-    
-    
+
+    def get_latest_country_populations(self):
+        countries = self.population.Area.unique()
+        print(countries)
+        dct = dict()
+        for country in countries:
+            data = self.population[self.population['Area'] == country]
+            max = data.loc[data['Value'].idxmax()]["Value"]
+            dct[country] = max
+        return dumps(dct)
+
+
 if __name__ == '__main__':
     datasupplier = DataSupplier()
     print(datasupplier.get_supply_data_by_country("Afghanistan"))
@@ -197,4 +210,3 @@ if __name__ == '__main__':
     print(datasupplier.stunting_by_country("Afghanistan"))
     print(datasupplier.wasting_by_country("Afghanistan"))
     print(datasupplier.retail_price_by_country("Afghanistan"))
-    

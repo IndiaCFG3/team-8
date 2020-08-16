@@ -6,6 +6,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link rel="stylesheet" href="http://cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
     <script src="http://cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <title>Rapid Bootstrap Template - Index</title>
     <meta content="" name="descriptison">
     <meta content="" name="keywords">
@@ -16,8 +17,8 @@
 
     <!-- Google Fonts -->
     <link
-        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,400,500,600,700"
-        rel="stylesheet">
+            href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,400,500,600,700"
+            rel="stylesheet">
 
     <!-- Vendor CSS Files -->
     <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -29,104 +30,106 @@
 
     <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
-	<style>
-		#graph{
-			margin: auto;
-		}
-	</style>
+    <style>
+        #graph {
+            margin: auto;
+        }
+    </style>
 </head>
 
 <body>
 
-    <!-- ======= Top Bar ======= -->
-    <div id="topbar" class="d-none d-lg-flex align-items-end fixed-top topbar-transparent">
-        <div class="container d-flex justify-content-end">
-            <!-- <div class="social-links">
-        <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-        <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-        <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
-        <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
-      </div> -->
-        </div>
+<!-- ======= Top Bar ======= -->
+<div id="topbar" class="d-none d-lg-flex align-items-end fixed-top topbar-transparent">
+    <div class="container d-flex justify-content-end">
+        <!-- <div class="social-links">
+    <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+    <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+    <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+    <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+  </div> -->
     </div>
+</div>
 
-    <!-- ======= Header ======= -->
-    <header id="header" class="fixed-top header-transparent">
-        <div class="container d-flex align-items-center">
+<!-- ======= Header ======= -->
+<header id="header" class="fixed-top header-transparent">
+    <div class="container d-flex align-items-center">
 
-            <h1 class="logo mr-auto"><a href="https://sightandlife.org/">Sight and Life</a></h1>
+        <h1 class="logo mr-auto"><a href="https://sightandlife.org/">Sight and Life</a></h1>
 
-        </div>
-    </header><!-- End Header -->
+    </div>
+</header><!-- End Header -->
 
-    <!-- ======= Hero Section ======= -->
-    <section id="hero" class="clearfix">
-        <div class="container d-flex h-100">
-            <div class="row justify-content-center align-self-center" data-aos="fade-up">
-                <div class="col-md-6 intro-info order-md-first order-last" data-aos="zoom-in" data-aos-delay="100">
+<!-- ======= Hero Section ======= -->
+<section id="hero" class="clearfix">
+    <div class="container d-flex h-100">
+        <div class="row justify-content-center align-self-center" data-aos="fade-up">
+            <div class="col-md-6 intro-info order-md-first order-last" data-aos="zoom-in" data-aos-delay="100">
 
-                    <form action="forms/contact.php" method="post" role="form" class="php-email-form" id="input">
-                        <div class="form-group col-sm-10">
-                            <label for="exampleFormControlSelect1">Select</label>
-                            <select class="form-control" id="exampleFormControlSelect1">
-                                <option>Demand</option>
-                                <option>Supply</option>
-                                <option>Per Person Comsumption</option>
-                                <option>Protein Consumption</option>
-                                <option>Production Cost</option>
-                                <option>Population</option>
-                            </select>
-                            <div class="validate"></div>
-                        </div>
-                        <div class="form-group col-sm-10">
-                            <input type="text" class="form-control" name="country" id="country1" placeholder="Country" />
-                            <div class="validate"></div>
-                        </div>
-                        <div class="form-group col-sm-10">
-                          <input type="text" class="form-control" name="country" id="country2" placeholder="Country you want to compare with" />
-                          <div class="validate"></div>
-                      </div>
-                    </form>
-
-                    <div>
-                        <a href="#about" class="btn-get-started scrollto" id="done">Search</a>
+                <form action="forms/contact.php" method="post" role="form" class="php-email-form" id="input">
+                    <div class="form-group col-sm-10">
+                        <label for="exampleFormControlSelect1">Select</label>
+                        <select class="form-control" id="exampleFormControlSelect1">
+                            <option>Demand</option>
+                            <option>Supply</option>
+                            <option>Per Person Comsumption</option>
+                            <option>Protein Consumption</option>
+                            <option>Production Cost</option>
+                            <option>Population</option>
+                        </select>
+                        <div class="validate"></div>
                     </div>
-                </div>
+                    <div class="form-group col-sm-10">
+                        <input type="text" class="form-control" name="country" id="country1" placeholder="Country"/>
+                        <div class="validate"></div>
+                    </div>
+                    <div class="form-group col-sm-10">
+                        <input type="text" class="form-control" name="country" id="country2"
+                               placeholder="Country you want to compare with"/>
+                        <div class="validate"></div>
+                    </div>
+                </form>
 
-                <div class="col-md-6 intro-img order-md-last order-first" data-aos="zoom-out" data-aos-delay="200">
-                    <img src="assets/img/intro-img.svg" alt="" class="img-fluid">
+                <div>
+                    <a href="#about" class="btn-get-started scrollto" id="done">Search</a>
                 </div>
             </div>
 
+            <div class="col-md-6 intro-img order-md-last order-first" data-aos="zoom-out" data-aos-delay="200">
+                <div id="regions_div" style="width: 900px; height: 500px;"></div>
+            </div>
         </div>
-    </section><!-- End Hero -->
-	<section>
-		<div class="d-flex mx-auto justify-content-center" id="graph">
-			<div class=" w-50 m-1 text-center ct-chart1 ct-perfect-fourth"></div>
-			<div class="w-50 m-1 text-center ct-chart2 ct-perfect-fourth"></div>
-		</div>
-	</section>
+
+    </div>
+</section><!-- End Hero -->
+<section>
+    <div class="d-flex mx-auto justify-content-center" id="graph">
+        <div class=" w-50 m-1 text-center ct-chart1 ct-perfect-fourth"></div>
+        <div class="w-50 m-1 text-center ct-chart2 ct-perfect-fourth"></div>
+    </div>
+</section>
 
 
-    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 
-    <!-- Vendor JS Files -->
-    <script src="assets/vendor/jquery/jquery.min.js"></script>
-    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
-    <script src="assets/vendor/php-email-form/validate.js"></script>
-    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-    <script src="assets/vendor/counterup/counterup.min.js"></script>
-    <script src="assets/vendor/venobox/venobox.min.js"></script>
-    <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
-    <script src="assets/vendor/waypoints/jquery.waypoints.min.js"></script>
-    <script src="assets/vendor/aos/aos.js"></script>
+<!-- Vendor JS Files -->
+<script src="assets/vendor/jquery/jquery.min.js"></script>
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+<script src="assets/vendor/php-email-form/validate.js"></script>
+<script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+<script src="assets/vendor/counterup/counterup.min.js"></script>
+<script src="assets/vendor/venobox/venobox.min.js"></script>
+<script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+<script src="assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+<script src="assets/vendor/aos/aos.js"></script>
 
-    <!-- Template Main JS File -->
-    <script src="assets/js/main.js"></script>
-	
-	<!-- Request-->
-	<script src="Request.js"></script>
+<!-- Template Main JS File -->
+<script src="assets/js/main.js"></script>
+
+<!-- Request-->
+<script src="Request.js"></script>
+<script src="Mapper.js"></script>
 
 </body>
 
