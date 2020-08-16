@@ -16,6 +16,10 @@ class DataSupplier:
         protein = pd.read_csv("../CSV Files/Country dietary needs.csv")
         self.protein = protein[protein["disagg.value"] == "National"][
             ["country", "Legumes_2016", "Milk_2016", "Processed meat_2016", "Red meat_2016"]]
+        supply_prices = pd.read_csv("../CSV Files/FAOSTAT_Supply_price.csv")
+        price1 = supply_prices[supply_prices["Months"] == "Annual value"]
+        price_USD = price1[price1["Unit"] == "USD"]
+        self.prices = price_USD[["Area", "Year", "Value"]]
 
     def get_supply_data_by_country(self, country):
         country = country[0].capitalize() + country[1:]
@@ -53,9 +57,20 @@ class DataSupplier:
         prtn = self.protein[self.protein['country'] == country].to_dict('records')[0]
         return dumps(prtn)
 
+    def egg_price_by_country(self, country):
+        country = country[0].capitalize() + country[1:]
+        data = self.prices[self.prices['Area'] == country]
+        years = data["Year"].tolist()
+        values = data["Value"].tolist()
+        final_data = {
+            "years": years,
+            "values": values
+        }
+        return dumps(final_data)
 
 if __name__ == '__main__':
     datasupplier = DataSupplier()
     print(datasupplier.get_supply_data_by_country("Afghanistan"))
     print(datasupplier.get_per_person_per_country("Afghanistan"))
     print(datasupplier.protein_consumption_by_country("India"))
+    print(datasupplier.egg_price_by_country("India"))

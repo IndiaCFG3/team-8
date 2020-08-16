@@ -29,5 +29,11 @@ def get_data(country):
     return data_supplier.protein_consumption_by_country(country)
 
 
+@app.route('/price/bycountry/<country>', methods=['POST', 'GET'])
+def get_data(country):
+    # if request.method == 'POST':
+    return data_supplier.egg_price_by_country(country)
+
+
 if __name__ == '__main__':
     app.run(debug=True)
