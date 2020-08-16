@@ -5,7 +5,7 @@ import pandas as pd
 
 class DataSupplier:
     def __init__(self):
-        dataset = pd.read_csv("/home/aayush/CFG/analysis/FAOSTAT_data_8-16-2020 (1).csv")
+        dataset = pd.read_csv("data.csv")
         new_data = dataset[dataset["Unit"] == "tonnes"]
         self.clean_data = new_data[["Area", "Item Code", "Year", "Value"]][dataset["Item Code"] == 1062][
             ["Area", "Year", "Value"]]
