@@ -4,6 +4,7 @@
 * Bhavika Bajaj
 * Srija Chitikesi
 * Ankit Goyal
+* Nikhil Agrawal
 
 ---
 > Append your names above as an experiment.
